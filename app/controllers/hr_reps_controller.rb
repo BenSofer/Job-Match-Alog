@@ -1,0 +1,2 @@
+class HrRepsController < ApplicationController
+end
