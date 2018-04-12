@@ -14,14 +14,10 @@
       # Job.create(occupation:"accountant",experience:"1-2 years",job_awesomeness:"bla bla bla",file_upload:"url:hasdasasdas",status:"active", business_id:1)
       # Job.create(occupation:"banker",experience:"1-2 years",job_awesomeness:"bla bla bla",file_upload:"url:hasdasasdas",status:"active", business_id:2)
       # Job.create(occupation:"accountant",experience:"2-3 years",job_awesomeness:"bla bla bla",file_upload:"url:hasdasasdas",status:"active", business_id:3)
-      JobSeeker.create (name:)
-     t.string "name"
-    t.string "email"
-    t.string "phone"
-    t.string "zip"
-    t.string "status"
-    t.string "occupation"
-    t.string "experience"
-    t.string "work_value"
-    t.text "self_awesomeness"
+      # JobSeeker.create(name:"Josef Gestener", email:"josephgestetner@gmail.com", zip:"08701", status:"seeking", occupation:"cyber security", experience:"0", work_value:"achievement", self_awesomeness:"I am a genious")
+      # JobSeeker.create(name:"Steven Friedman", email:"steve.y.f@gmail.com", zip:"11559", status:"seeking", occupation:"Accounting", experience:"4", work_value:"achievement", self_awesomeness:"I am a rock star")
+      # JobSeeker.create(name:"Test", email:"test@gmail.com", zip:"08701", status:"seeking", occupation:"testing", experience:"0", work_value:"achievement", self_awesomeness:"testing")
+      # JobSeeker.create(name:"ben Sofer", email:"asdfgadf", zip:"08701", status:"seeking", occupation:"cyber security", experience:"0", work_value:"achievement", self_awesomeness:"I am a hard worker")
+
+
      

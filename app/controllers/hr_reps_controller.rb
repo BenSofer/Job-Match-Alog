@@ -1,2 +1,0 @@
-class HrRepsController < ApplicationController
-end
