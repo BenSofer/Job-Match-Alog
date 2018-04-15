@@ -9,7 +9,10 @@ class V1::JobsController < ApplicationController
       file_upload: params[:file_upload],
       status: params[:status]
     )
-    job1.save
+    job1.save 
+    
+    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, status:job1.status, zip:job1.business.zip)
+    p jobseekers
     render json: job1.as_json
   end
 

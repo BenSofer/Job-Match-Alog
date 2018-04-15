@@ -1,7 +1,5 @@
 class V1::MatchesController < ApplicationController
-  # def create
-  #   match1 = Match.new
-  # end 
+
   def create
     match1 = Match.new(
       jobs_id: params[:jobs_id],
