@@ -1,12 +1,24 @@
 class V1::BusinessesController < ApplicationController
   def create
     business1 = Business.new(
+   # database name ----- index.js
       name: params[:name],
       address: params[:address],
       zip:params[:zip],
-      website: params[:website],
+      website: params[:website]
     )
     business1.save
+
+    hr_rep1 = HrRep.new(
+       title: params[:hr_title],
+       name: params[:hr_name],
+       phone_1: params[:hr_phone1],
+       phone_2: params[:hr_phone2],       
+       email:params[:hr_email],
+       business_id: business1.id
+      )
+    hr_rep1.save
+   
     render json: business1.as_json
   end
 
