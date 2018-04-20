@@ -18,6 +18,18 @@ class V1::BusinessesController < ApplicationController
        business_id: business1.id
       )
     hr_rep1.save
+    
+    job1 = Job.new(
+      occupation: params[:occupation],
+      experience: params[:experience],
+      work_value: params[:work_value],
+      job_awesomeness: params[:awesomeness],
+      file_upload: params[:file_upload],
+      status: params[:status],
+      business_id: business1.id
+    )
+    job1.save 
+
    
     render json: business1.as_json
   end
