@@ -14,7 +14,7 @@ var HomePage = {
 };
 
 var BusinessRegistrationPage = {
-  template: "#business-hr-registration-page",
+  template: "#business-registration-page",
   data: function() {
     return {
       // grabbing from HTML file
@@ -27,6 +27,11 @@ var BusinessRegistrationPage = {
       hrPhone1:"",
       hrPhone2:"",
       hrEmail: "",
+      jobOccupation: "",
+      jobExperience: "",
+      jobWorkValue: "",
+      jobAwesomeness: "",
+      jobFileUpload: "",
       errors: []
     };
   },
@@ -42,7 +47,12 @@ var BusinessRegistrationPage = {
         hr_name: this.hrName,
         hr_phone1: this.hrPhone1,
         hr_phone2: this.hrPhone2,
-        hr_email: this.hrEmail
+        hr_email: this.hrEmail,
+        job_occupation: this.jobOccupation,
+        job_experience: this.jobExperience,
+        job_work_value: this.jobWorkValue,
+        job_awesomeness: this.jobAwesomeness,
+        job_file_upload: this.jobFileUpload       
       };
       axios
         .post("/v1/businesses", params)

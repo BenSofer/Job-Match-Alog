@@ -9,7 +9,7 @@ class V1::JobSeekersController < ApplicationController
       occupation: params[:occupation],
       experience: params[:experience],
       work_value: params[:work_value],
-      self_awesomeness: params[:awesomeness],
+      awesomeness: params[:awesomeness],
       file_upload: params[:file_upload]   
     )
     job_seeker1.save
@@ -39,7 +39,7 @@ class V1::JobSeekersController < ApplicationController
       occupation: params[:occupation],
       experience: params[:experience],
       work_value: params[:work_value],
-      self_awesomeness: params[:awesomeness],
+      awesomeness: params[:awesomeness],
       file_upload: params[:file_upload] 
     )
     render json: job_seeker.as_json

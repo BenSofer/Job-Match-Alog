@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415034155) do
+ActiveRecord::Schema.define(version: 20180420194836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180415034155) do
     t.string "occupation"
     t.string "experience"
     t.string "work_value"
-    t.text "self_awesomeness"
+    t.text "awesomeness"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file_upload"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180415034155) do
     t.string "occupation"
     t.string "experience"
     t.string "work_value"
-    t.text "job_awesomeness"
+    t.text "awesomeness"
     t.string "file_upload"
     t.string "status"
     t.integer "business_id"

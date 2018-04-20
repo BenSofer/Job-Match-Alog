@@ -18,18 +18,21 @@ class V1::BusinessesController < ApplicationController
        business_id: business1.id
       )
     hr_rep1.save
-    
+
     job1 = Job.new(
-      occupation: params[:occupation],
-      experience: params[:experience],
-      work_value: params[:work_value],
-      job_awesomeness: params[:awesomeness],
-      file_upload: params[:file_upload],
-      status: params[:status],
+      occupation: params[:job_occupation],
+      experience: params[:job_experience],
+      work_value: params[:job_work_value],
+      awesomeness: params[:job_awesomeness],
+      file_upload: params[:job_file_upload],
+      status: params[:job_status],
       business_id: business1.id
     )
     job1.save 
 
+    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, status:job1.status, zip:job1.business.zip)
+    p jobseekers
+    render json: job1.as_json
    
     render json: business1.as_json
   end

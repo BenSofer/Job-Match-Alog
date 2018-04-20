@@ -5,7 +5,7 @@ class V1::JobsController < ApplicationController
       occupation: params[:occupation],
       experience: params[:experience],
       work_value: params[:work_value],
-      job_awesomeness: params[:awesomeness],
+      awesomeness: params[:awesomeness],
       file_upload: params[:file_upload],
       status: params[:status]
     )
@@ -34,7 +34,7 @@ class V1::JobsController < ApplicationController
       occupation: params[:occupation],
       experience: params[:experience],
       work_value: params[:work_value],
-      job_awesomeness: params[:awesomeness],
+      awesomeness: params[:awesomeness],
       file_upload: params[:file_upload],
       status: params[:status]
     )
