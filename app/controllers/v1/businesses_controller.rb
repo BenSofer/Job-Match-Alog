@@ -30,9 +30,10 @@ class V1::BusinessesController < ApplicationController
     )
     job1.save 
 
-    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, status:job1.status, zip:job1.business.zip)
-    p jobseekers
-    render json: job1.as_json
+    # jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, status:job1.status, zip:job1.business.zip)
+    # p jobseekers
+    # render json: job1.as_json
+    # we need to put job seekers into an array
    
     render json: business1.as_json
   end

@@ -67,10 +67,57 @@ var BusinessRegistrationPage = {
     }
   }
 };
+
+var SeekerRegistrationPage = {
+  template: "#seeker-registration-page",
+  data: function() {
+    return {
+      // grabbing from HTML file
+      seekerName: "",
+      seekerOccupation: "",
+      seekerExperience: "",
+      seekerAwesomeness: "",
+      seekerFileUpload: "",
+      seekerWorkValue: "",
+      seekerPhone:"",
+      seekerEmail: "",
+      seekerZip: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        // controller ---  grabbing from above   
+        seeker_name: this.seekerName,
+        seeker_occupation: this.seekerOccupation,
+        seeker_experience: this.seekerExperience,
+        seeker_awesomeness: this.seekerAwesomeness,
+        seeker_file_upload: this.seekerFileUpload,
+        seeker_work_value: this.seekerWorkValue,
+        seeker_phone: this.seekerPhone,
+        seeker_email: this.seekerEmail,
+        seeker_zip: this.seekerZip 
+      };
+      axios
+        .post("/v1/job_seekers", params)
+        .then(function(response) {
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
 var router = new VueRouter({
   routes: [
-  { path: "/", component: HomePage },
-  { path: "/businesses/new", component: BusinessRegistrationPage }
+    { path: "/", component: HomePage },
+    { path: "/businesses/new", component: BusinessRegistrationPage },
+    { path: "/job-seekers/new", component: SeekerRegistrationPage }
   ],
 
   scrollBehavior: function(to, from, savedPosition) {
