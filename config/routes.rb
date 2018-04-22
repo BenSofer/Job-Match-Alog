@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     delete '/job_seekers'=> 'job_seekers#destroy'
 
     get '/businesses' => 'businesses#index'
-    # get '/businesses' => 'businesses#new'
     get '/businesses/:id' => 'businesses#show'
     post '/businesses' => 'businesses#create'
     patch '/businesses/:id' => 'businesses#update'

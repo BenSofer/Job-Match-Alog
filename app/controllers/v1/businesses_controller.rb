@@ -30,9 +30,19 @@ class V1::BusinessesController < ApplicationController
     )
     job1.save 
 
-    # jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, status:job1.status, zip:job1.business.zip)
-    # p jobseekers
-    # render json: job1.as_json
+    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, zip:job1.business.zip)
+    p jobseekers 
+
+    jobseekers.each do |jobseeker| 
+      match = Match.new(
+        job_seeker_id: jobseeker.id,
+        job_id: job1.id
+        )
+        p match 
+        match.save
+      end 
+
+    # render json: jobseekers.as_json
     # we need to put job seekers into an array
    
     render json: business1.as_json
