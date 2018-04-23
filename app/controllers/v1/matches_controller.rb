@@ -2,8 +2,8 @@ class V1::MatchesController < ApplicationController
 
   def create
     match1 = Match.new(
-      jobs_id: params[:jobs_id],
-      jod_seeker_id: params[:jod_seeker_id],
+      job_id: params[:job_id],
+      job_seeker_id: params[:job_seeker_id],
       status: params[:status]
     )
     match1.save
@@ -25,8 +25,8 @@ class V1::MatchesController < ApplicationController
     the_id = params[:id]
     match = Match.find_by(id: the_id)
     match.update(
-      jobs_id: params[:jobs_id],
-      jod_seeker_id: params[:jod_seeker_id],
+      job_id: params[:job_id],
+      job_seeker_id: params[:job_seeker_id],
       status: params[:status]
     )
     render json: match.as_json
