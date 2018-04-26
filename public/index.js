@@ -114,7 +114,7 @@ var BusinessRegistrationPage = {
     submit: function() {
       var params = {
         // controller ---  grabbing from above   
-        name: this.name,
+        bus_name: this.name,
         address: this.address,
         zip: this.zip,
         website: this.website,
@@ -132,6 +132,10 @@ var BusinessRegistrationPage = {
       axios
         .post("/v1/businesses", params)
         .then(function(response) {
+          console.log(response.data)
+          for (var i=0; i < response.data.length; i++) {
+            // I AM UPTO HERE 
+          }
           router.push("/");
         })
         .catch(

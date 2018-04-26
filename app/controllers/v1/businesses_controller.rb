@@ -2,7 +2,7 @@ class V1::BusinessesController < ApplicationController
   def create
     business1 = Business.new(
    # database name ----- index.js
-      name: params[:name],
+      name: params[:bus_name],
       address: params[:address],
       zip:params[:zip],
       website: params[:website]
@@ -33,6 +33,8 @@ class V1::BusinessesController < ApplicationController
     jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, zip:job1.business.zip)
     p jobseekers 
 
+    matches_for_hr_rep = [ ]
+
     jobseekers.each do |jobseeker| 
       match = Match.new(
         job_seeker_id: jobseeker.id,
@@ -40,12 +42,9 @@ class V1::BusinessesController < ApplicationController
         )
         p match 
         match.save
+        matches_for_hr_rep << match 
       end 
-
-    # render json: jobseekers.as_json
-    # we need to put job seekers into an array
-   
-    render json: business1.as_json
+    render json: matches_for_hr_rep.as_json
   end
 
   def index
@@ -63,7 +62,7 @@ class V1::BusinessesController < ApplicationController
     the_id = params[:id]
     business = Business.find_by(id: the_id)
     business.update(
-      name: params[:name],
+      name: params[:bus_name],
       address: params[:address],
       zip:params[:zip],
       website: params[:website], 
