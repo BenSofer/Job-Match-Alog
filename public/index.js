@@ -33,19 +33,19 @@ var SignupPage = {
   }
 };
 
-var LoginPage = {
-  template: "#login-page",
+var SeekerLoginPage = {
+  template: "#seeker-login-page",
   data: function() {
     return {
-      email: "",
-      password: "",
+      seekerEmail: "",
+      seekerPassword: "",
       errors: []
     };
   },
   methods: {
     submit: function() {
       var params = {
-        auth: { email: this.email, password: this.password }
+        auth: { seeker_email: this.seekerEmail, seeker_password: this.seekerPassword }
       };
       axios
         .post("/user_token", params)
@@ -99,9 +99,11 @@ var BusinessRegistrationPage = {
       website: "",
       hrTitle: "",
       hrName: "",
+      hrEmail: "",
+      hrPassword: "",
+      hrPasswordConfirmation: "",
       hrPhone1:"",
       hrPhone2:"",
-      hrEmail: "",
       jobOccupation: "",
       jobExperience: "",
       jobWorkValue: "",
@@ -120,9 +122,12 @@ var BusinessRegistrationPage = {
         website: this.website,
         hr_title: this.hrTitle,
         hr_name: this.hrName,
+        hr_email: this.hrEmail,
+        hr_password: this.hrPassword,
+        hr_password_confirmation: this.hrPasswordConfirmation,
         hr_phone1: this.hrPhone1,
         hr_phone2: this.hrPhone2,
-        hr_email: this.hrEmail,
+        
         job_occupation: this.jobOccupation,
         job_experience: this.jobExperience,
         job_work_value: this.jobWorkValue,
@@ -130,8 +135,27 @@ var BusinessRegistrationPage = {
         job_file_upload: this.jobFileUpload       
       };
       axios
+      // axios
+      //   .post("/user_token", params)
+      //   .then(function(response) {
+      //     axios.defaults.headers.common["Authorization"] =
+      //       "Bearer " + response.data.jwt;
+      //     localStorage.setItem("jwt", response.data.jwt);
+      //     router.push("/");
+      //   })
+      //   .catch(
+      //     function(error) {
+      //       this.errors = ["Invalid email or password."];
+      //       this.email = "";
+      //       this.password = "";
+      //     }.bind(this)
+      //   );
         .post("/v1/businesses", params)
         .then(function(response) {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          router.push("/");
           console.log(response.data)
           for (var i=0; i < response.data.length; i++) {
             // I AM UPTO HERE 
@@ -140,7 +164,11 @@ var BusinessRegistrationPage = {
         })
         .catch(
           function(error) {
+            // this.errors = ["Invalid email or password."];
+            this.hrEmail = "";
+            this.hrPassword = "";
             this.errors = error.response.data.errors;
+            console.log(this.errors)
           }.bind(this)
         );
     }
@@ -153,13 +181,15 @@ var SeekerRegistrationPage = {
     return {
       // grabbing from HTML file
       seekerName: "",
+      seekerEmail: "",
+      seekerPassword: "",
+      seekerPasswordConfirmation: "",
       seekerOccupation: "",
       seekerExperience: "",
       seekerAwesomeness: "",
       seekerFileUpload: "",
       seekerWorkValue: "",
       seekerPhone:"",
-      seekerEmail: "",
       seekerZip: "",
       errors: []
     };
@@ -169,23 +199,31 @@ var SeekerRegistrationPage = {
       var params = {
         // controller ---  grabbing from above   
         seeker_name: this.seekerName,
+        seeker_email: this.seekerEmail,
+        seeker_password: this.seekerPassword,
+        seeker_password_confirmation: this.seekerPasswordConfirmation,
         seeker_occupation: this.seekerOccupation,
         seeker_experience: this.seekerExperience,
         seeker_awesomeness: this.seekerAwesomeness,
         seeker_file_upload: this.seekerFileUpload,
         seeker_work_value: this.seekerWorkValue,
         seeker_phone: this.seekerPhone,
-        seeker_email: this.seekerEmail,
         seeker_zip: this.seekerZip 
       };
       axios
         .post("/v1/job_seekers", params)
         .then(function(response) {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
           router.push("/");
         })
         .catch(
           function(error) {
-            this.errors = error.response.data.errors;
+            this.errors = ["Invalid email or password."];
+            this.seekerEmail = "";
+            this.seekerPassword = "";
+            // this.errors = error.response.data.errors;
           }.bind(this)
         );
     }
@@ -196,7 +234,7 @@ var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
-    { path: "/login", component: LoginPage },
+    { path: "/seeker-login", component: SeekerLoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/businesses/new", component: BusinessRegistrationPage },
     { path: "/job-seekers/new", component: SeekerRegistrationPage }

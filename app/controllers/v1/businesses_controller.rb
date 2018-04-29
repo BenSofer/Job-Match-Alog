@@ -12,9 +12,11 @@ class V1::BusinessesController < ApplicationController
     hr_rep1 = HrRep.new(
        title: params[:hr_title],
        name: params[:hr_name],
+       email:params[:hr_email],
+       password: params[:hr_password],
+       password_confirmation: params[:hr_password_confirmation],
        phone_1: params[:hr_phone1],
        phone_2: params[:hr_phone2],       
-       email:params[:hr_email],
        business_id: business1.id
       )
     hr_rep1.save
@@ -30,7 +32,7 @@ class V1::BusinessesController < ApplicationController
     )
     job1.save 
 
-    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, zip:job1.business.zip)
+    jobseekers = JobSeeker.where(occupation: job1.occupation, experience:job1.experience, zip:job1.business.zip).limit(10)
     p jobseekers 
 
     matches_for_hr_rep = [ ]

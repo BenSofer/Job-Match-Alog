@@ -4,6 +4,8 @@ class V1::JobSeekersController < ApplicationController
        # database name ----- index.js
       name: params[:seeker_name],
       email: params[:seeker_email],
+      password: params[:seeker_password],
+      password_confirmation: params[:seeker_password_confirmation],
       phone: params[:seeker_phone],
       zip:params[:seeker_zip],
       # status: params[:seeker_status],
