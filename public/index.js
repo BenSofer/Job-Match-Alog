@@ -1,7 +1,9 @@
 /* global Vue, VueRouter, axios */
 
-var SignupPage = {
-  template: "#signup-page",
+
+
+var JobSeekerSignupPage = {
+  template: "#job-seeker-signup-page",
   data: function() {
     return {
       name: "",
@@ -20,7 +22,7 @@ var SignupPage = {
         password_confirmation: this.passwordConfirmation
       };
       axios
-        .post("/v1/users", params)
+        .post("/v1/job_seekers", params)
         .then(function(response) {
           router.push("/login");
         })
@@ -33,22 +35,55 @@ var SignupPage = {
   }
 };
 
-var SeekerLoginPage = {
-  template: "#seeker-login-page",
+var HrRepSignupPage = {
+  template: "#hr-rep-signup-page",
   data: function() {
     return {
-      seekerEmail: "",
-      seekerPassword: "",
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
       errors: []
     };
   },
   methods: {
     submit: function() {
       var params = {
-        auth: { seeker_email: this.seekerEmail, seeker_password: this.seekerPassword }
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation
       };
       axios
-        .post("/user_token", params)
+        .post("/v1/hr_reps", params)
+        .then(function(response) {
+          router.push("/login");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
+var HrRepLoginPage = {
+  template: "#login-page",
+  data: function() {
+    return {
+      email: "",
+      password: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        auth: { email: this.email, password: this.password }
+      };
+      axios
+        .post("/hr_rep_token", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
@@ -66,15 +101,71 @@ var SeekerLoginPage = {
   }
 };
 
-var LogoutPage = {
-  template: "<h1>Logout</h1>",
-  created: function() {
-    axios.defaults.headers.common["Authorization"] = undefined;
-    localStorage.removeItem("jwt");
-    router.push("/");
+var JobSeekerLoginPage = {
+  template: "#job-seeker-login-page",
+  data: function() {
+    return {
+      email: "",
+      password: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        auth: { email: this.email, password: this.password }
+      };
+      axios
+        .post("/job_seeker_token", params)
+        .then(function(response) {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = ["Invalid email or password."];
+            this.email = "";
+            this.password = "";
+          }.bind(this)
+        );
+    }
   }
 };
+// var SignupPage = {
+//   template: "#signup-page",
+//   data: function() {
+//     return {
+//       name: "",
+//       email: "",
+//       password: "",
+//       passwordConfirmation: "",
+//       errors: []
+//     };
+//   },
+//   methods: {
 
+//     submit: function() {
+//       var params = {
+//         name: this.name,
+//         email: this.email,
+//         password: this.password,
+//         password_confirmation: this.passwordConfirmation
+//       };
+//       axios
+//         .post("/v1/users", params)
+//         .then(function(response) {
+//           router.push("/login");
+//         })
+//         .catch(
+//           function(error) {
+//             this.errors = error.response.data.errors;
+//           }.bind(this)
+//         );
+//     }
+//   }
+// };
 var HomePage = {
   template: "#home-page",
   data: function() {
@@ -156,19 +247,15 @@ var BusinessRegistrationPage = {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           router.push("/");
-          console.log(response.data)
-          for (var i=0; i < response.data.length; i++) {
+          console.log(response.data);
+          for (var i = 0; i < response.data.length; i++) {
             // I AM UPTO HERE 
           }
           router.push("/");
         })
         .catch(
           function(error) {
-            // this.errors = ["Invalid email or password."];
-            this.hrEmail = "";
-            this.hrPassword = "";
             this.errors = error.response.data.errors;
-            console.log(this.errors)
           }.bind(this)
         );
     }
@@ -211,7 +298,7 @@ var SeekerRegistrationPage = {
         seeker_zip: this.seekerZip 
       };
       axios
-        .post("/v1/job_seekers", params)
+        .post("/v1/job-seekers", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
@@ -220,21 +307,34 @@ var SeekerRegistrationPage = {
         })
         .catch(
           function(error) {
-            this.errors = ["Invalid email or password."];
-            this.seekerEmail = "";
-            this.seekerPassword = "";
-            // this.errors = error.response.data.errors;
+            this.errors = error.response.data.errors;
           }.bind(this)
         );
     }
   }
 };
 
+
+
+
+var LogoutPage = {
+  template: "<h1>Logout</h1>",
+  created: function() {
+    axios.defaults.headers.common["Authorization"] = undefined;
+    localStorage.removeItem("jwt");
+    router.push("/");
+  }
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
-    { path: "/signup", component: SignupPage },
-    { path: "/seeker-login", component: SeekerLoginPage },
+    // { path: "/signup", component: SignupPage },
+    // { path: "/login", component: LoginPage },
+    { path: "/hr-rep-signup", component: HrRepSignupPage },
+    { path: "/job-seeker-signup", component: JobSeekerSignupPage },
+    { path: "/hr-rep-login", component: HrRepLoginPage },
+    { path: "/job-seeker-login", component: JobSeekerLoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/businesses/new", component: BusinessRegistrationPage },
     { path: "/job-seekers/new", component: SeekerRegistrationPage }

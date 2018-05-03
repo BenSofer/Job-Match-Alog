@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'user_token#create'
+  post 'job_seeker_token' => 'job_seeker_token#create'
+  post 'hr_rep_token' => 'hr_rep_token#create'
   namespace :v1 do
-
-    post "/users" => "users#create"
 
     get '/jobs' => 'jobs#index'
     get '/jobs/:id' => 'jobs#show'

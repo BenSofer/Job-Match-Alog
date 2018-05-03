@@ -1,4 +1,19 @@
-# class V1::HrRepsController < ApplicationController
+class V1::HrRepsController < ApplicationController
+
+ def create
+    hr_rep = HrRep.new(
+      name: params[:name],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation]
+    )
+    if hr_rep.save
+      render json: {message: 'User created successfully'}, status: :created
+    else
+      render json: {errors: hr_rep.errors.full_messages}, status: :bad_request
+    end
+  end
+
 #   def create
 #     hr_rep1 = HrRep.new(
 #       title: params[:title],
@@ -41,4 +56,4 @@
 #     hr_rep.destroy
 #     render json: {message:"This hr_rep has been deleted"}
 #   end
-# end
+end

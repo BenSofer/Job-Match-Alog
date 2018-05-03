@@ -18,7 +18,7 @@
     <div id="vue-app">
 
       <!-- NAV BAR GOES HERE AND IT CAN CONTAIN LOTS OF CODE !!!-->
-      <a href="/#/signup">Signup</a>
+     <!--  <a href="/#/signup">Signup</a> -->
       <a href="/#/login">Login</a>
       <a href="/#/logout">Logout</a>
 
@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<template id="signup-page">
+<template id="hr-rep-signup-page">
   <div class="vue-component">
 
     <div class="container">
@@ -77,21 +77,29 @@
   </div>
 </template>
 
-<template id="seeker-login-page">
+<template id="job-seeker-signup-page">
   <div class="vue-component">
 
     <div class="container">
-      <h1>Login</h1>
+      <h1>Signup</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
         <label>Email:</label>
-        <input type="email" class="form-control" v-model="seekerEmail">
+        <input type="email" class="form-control" v-model="email">
       </div>
       <div class="form-group">
         <label>Password:</label>
-        <input type="password" class="form-control" v-model="seekerPassword">
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
@@ -99,7 +107,7 @@
   </div>
 </template>
 
-<template id="hr-login-page">
+<template id="hr-rep-login-page">
   <div class="vue-component">
 
     <div class="container">
@@ -120,6 +128,50 @@
 
   </div>
 </template>
+
+<template id="job-seeker-login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<!-- <template id="hr-login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template> -->
 
 <template id="business-registration-page">
   <div class="vue-component">
@@ -214,7 +266,7 @@
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="text" class="form-control" v-model="seekerEmail">
+        <input type="email" class="form-control" v-model="seekerEmail">
       </div>
       <div class="form-group">
         <label>Password:</label>
