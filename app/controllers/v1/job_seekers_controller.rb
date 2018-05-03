@@ -1,5 +1,5 @@
 class V1::JobSeekersController < ApplicationController
-   def create
+  def create
     job_seeker = JobSeeker.new(
       name: params[:name],
       email: params[:email],
@@ -7,7 +7,7 @@ class V1::JobSeekersController < ApplicationController
       password_confirmation: params[:password_confirmation]
     )
     if job_seeker.save
-      render json: {message: 'User created successfully'}, status: :created
+      render json: {message: 'Job Seeker created successfully'}, status: :created
     else
       render json: {errors: job_seeker.errors.full_messages}, status: :bad_request
     end
