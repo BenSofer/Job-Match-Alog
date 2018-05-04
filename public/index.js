@@ -68,6 +68,8 @@ var HrRepSignupPage = {
   }
 };
 
+// I would like to combine the two log in pages
+
 var HrRepLoginPage = {
   template: "#login-page",
   data: function() {
@@ -266,7 +268,7 @@ var SeekerRegistrationPage = {
         seeker_zip: this.seekerZip 
       };
       axios
-        .post("/v1/job-seekers", params)
+        .post("/v1/job_seekers", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
@@ -299,13 +301,14 @@ var router = new VueRouter({
     { path: "/", component: HomePage },
     // { path: "/signup", component: SignupPage },
     // { path: "/login", component: LoginPage },
-    { path: "/hr-rep-signup", component: HrRepSignupPage },
-    { path: "/job-seeker-signup", component: JobSeekerSignupPage },
+   
     { path: "/hr-rep-login", component: HrRepLoginPage },
     { path: "/job-seeker-login", component: JobSeekerLoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/businesses/new", component: BusinessRegistrationPage },
-    { path: "/job-seekers/new", component: SeekerRegistrationPage }
+    { path: "/job_seekers/new", component: SeekerRegistrationPage },
+    { path: "/hr-rep-signup", component: HrRepSignupPage },
+    { path: "/job-seeker-signup", component: JobSeekerSignupPage }
   ],
 
   scrollBehavior: function(to, from, savedPosition) {
