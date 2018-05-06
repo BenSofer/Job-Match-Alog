@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags  -->
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Candibots - The Most Complete & Trusted Jobsite</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/prism/prism.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../main/css/style.css" rel="stylesheet">
+    <!-- page css -->
+    <link href="../main/css/pages/card-page.css" rel="stylesheet">
+    <link href="../main/css/pages/other-pages.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="../main/css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <style type="text/css">
+    .sidebar-nav>ul>li>a.active {
+        background: transparent!important;
+    }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+
+    <div id="vue-app">
+
+      <!-- NAV BAR GOES HERE AND IT CAN CONTAIN LOTS OF CODE !!!-->
+     <!--  <a href="/#/signup">Signup</a> -->
+      <a href="/#/login">Login</a>
+      <a href="/#/logout">Logout</a>
+
+      <router-view></router-view>
+
+      <!-- FOOTER GOES HERE -->
+
+    </div>
+
+<!-- JAVASCRIPT GOES HERE -->
+<!-- JQUERY -> POPPER -> BOOTSTAPJS  -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
+
+
+<template id="home-page">
+  <div class="vue-component">
+
+    <h1>{{ message }}</h1>
+
+  </div>
+</template>
+
+<template id="hr-rep-signup-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Signup</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="job-seeker-signup-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Signup</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="hr-rep-login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="job-seeker-login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<!-- <template id="hr-login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template> -->
+
+<template id="business-registration-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Register Your Business</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Business Name:</label>
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Business Address:</label>
+        <input type="text" class="form-control" v-model="address">
+      </div>
+      <div class="form-group">
+        <label>Business Zip:</label>
+        <input type="text" class="form-control" v-model="zip">
+      </div>
+      <div class="form-group">
+        <label>Business Website:</label>
+        <input type="text" class="form-control" v-model="website">
+      </div>
+      <div class="form-group">
+        <label>HR Title:</label>
+        <input type="text" class="form-control" v-model="hrTitle">
+      </div>
+      <div class="form-group">
+        <label>HR Name:</label>
+        <input type="text" class="form-control" v-model="hrName">
+      </div>
+      <div class="form-group">
+        <label>HR Email:</label>
+        <input type="text" class="form-control" v-model="hrEmail">
+      </div>
+      <div class="form-group">
+        <label>HR Password:</label>
+        <input type="password" class="form-control" v-model="hrPassword">
+      </div>
+      <div class="form-group">
+        <label>HR Password Confirmation:</label>
+        <input type="password" class="form-control" v-model="hrPasswordConfirmation">
+      </div>
+      <div class="form-group">
+        <label>HR Phone 1:</label>
+        <input type="text" class="form-control" v-model="hrPhone1">
+      </div>
+      <div class="form-group">
+        <label>HR Phone 2:</label>
+        <input type="text" class="form-control" v-model="hrPhone2">
+      </div>
+      <div class="form-group">
+        <label>What Position do you need filled?</label>
+        <input type="text" class="form-control" v-model="jobOccupation">
+      </div>
+      <div class="form-group">
+        <label>How much Experience is required?</label>
+        <input type="text" class="form-control" v-model="jobExperience">
+      </div>
+      <div class="form-group">
+        <label>This job is awesome because...</label>
+        <input type="text" class="form-control" v-model="jobAwesomeness">
+      </div>
+      <div class="form-group">
+        <label>Select a "work value" that your company supports. </label>
+        <input type="text" class="form-control" v-model="jobWorkValue">
+      </div>
+      <div class="form-group">
+        <label>Help the right candidate choose your postion by uploading pics, vids, docs, or any other meaningful information.</label>
+        <input type="text" class="form-control" v-model="jobFileUpload">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+
+<template id="seeker-registration-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Get Connected to the right jobs for you!</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" class="form-control" v-model="seekerName">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="seekerEmail">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="seekerPassword">
+      </div>
+      <div class="form-group">
+        <label>Password Confirmation:</label>
+        <input type="password" class="form-control" v-model="seekerPasswordConfirmation">
+      </div>
+      <div class="form-group">
+        <label>Select your Occupation</label>
+        <input type="text" class="form-control" v-model="seekerOccupation">
+      </div>
+      <div class="form-group">
+        <label>Select your Experience</label>
+        <input type="text" class="form-control" v-model="seekerExperience">
+      </div>
+      <div class="form-group">
+        <label>What is awesome about yourself?</label>
+        <input type="text" class="form-control" v-model="seekerAwesomeness">
+      </div>
+      <div class="form-group">
+        <label>Sell yourself! Upload your resume, pics and vids</label>
+        <input type="text" class="form-control" v-model="seekerFileUpload">
+      </div>
+      <div class="form-group">
+        <label>Besides for money, select what is the most important "work value" you seek in a job. </label>
+        <input type="text" class="form-control" v-model="seekerWorkValue">
+      </div>
+      <div class="form-group">
+        <label>Phone:</label>
+        <input type="text" class="form-control" v-model="seekerPhone">
+      </div>
+      
+      <div class="form-group">
+        <label>Zip:</label>
+        <input type="text" class="form-control" v-model="seekerZip">
+      </div>
+
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
