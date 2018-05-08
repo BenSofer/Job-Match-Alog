@@ -25,6 +25,10 @@ class V1::JobSeekersController < ApplicationController
 
   def index
     job_seekers = JobSeeker.all
+    ben = params[:q] 
+    if ben == "jobs3"  
+      job_seekers = JobSeeker.order("RANDOM()").limit(3)
+    end 
     render json: job_seekers.as_json
   end 
 

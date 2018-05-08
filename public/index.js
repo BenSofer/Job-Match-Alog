@@ -140,11 +140,17 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
-
+      message: "Welcome to Vue.js!",
+      job_seekers: [],
+      errors: []
     };
   },
-  created: function() {},
+    created: function() {
+    axios.get("/v1/job_seekers?q=jobs3").then(function(response) {
+      this.job_seekers = response.data;
+    }.bind(this));
+  },
+
   methods: {},
   computed: {}
 };
@@ -283,9 +289,6 @@ var SeekerRegistrationPage = {
     }
   }
 };
-
-
-
 
 var LogoutPage = {
   template: "<h1>Logout</h1>",

@@ -211,20 +211,20 @@
       <div class="container">
         <h3 class="heading">Featured Candidates</h3>
         <div class="row featured align-items-stretch">
-          <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="col-lg-4 mb-5 mb-lg-0"  v-for="job_seeker in job_seekers"> 
             <div class="box-image-text bg-visible full-height">
               <div class="top"><a href="detail.html">
                   <div class="image"><img src="img/featured1.jpg" alt="" class="img-fluid"></div>
                   <div class="bg"></div>
                   <div class="logo"><img src="img/company-1.png" alt="" style="max-width: 80px;"></div></a></div>
               <div class="content">
-                <h5><a href="detail.html">Software Engineer</a></h5>
-                <p class="featured__details">  <i class="fa fa-map-marker job__location"></i>San Francisco<span class="badge featured-badge badge-success">Full Time</span></p>
-                <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
+                <h5><a href="detail.html">{{job_seeker.occupation}}</a></h5>
+                <p class="featured__details">  <i class="fa fa-map-marker job__location"></i>{{job_seeker.zip}}<span class="badge featured-badge badge-success">{{job_seeker.work_value}}</span></p>
+                <p>{{job_seeker.awesomeness}}</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
+         <!--  <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="box-image-text bg-visible full-height">
               <div class="top"><a href="detail.html">
                   <div class="image"><img src="img/featured2.jpg" alt="" class="img-fluid"></div>
@@ -249,7 +249,7 @@
                 <p>Fifth abundantly made Give sixth hath. Cattle creature i be dont them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
