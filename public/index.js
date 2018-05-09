@@ -1,6 +1,38 @@
 /* global Vue, VueRouter, axios */
 
+var AboutPage = {
+  template: "#about-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+    };
+  },
+  created: function() {
+    // created runs when the component is created
+    // console.log('outside this');
 
+  },
+  methods: {},
+  computed: {}
+};
+
+var JobsPage = {
+  template: "#jobs-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      jobs: [],
+      errors: []
+    };
+  },
+    created: function() {
+    axios.get("/v1/jobs").then(function(response) {
+      this.jobs = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
 
 var JobSeekerSignupPage = {
   template: "#job-seeker-signup-page",
@@ -142,12 +174,16 @@ var HomePage = {
     return {
       message: "Welcome to Vue.js!",
       job_seekers: [],
+      jobs: [],
       errors: []
     };
   },
     created: function() {
-    axios.get("/v1/job_seekers?q=jobs3").then(function(response) {
+    axios.get("/v1/job_seekers?q=seekers3").then(function(response) {
       this.job_seekers = response.data;
+    }.bind(this));
+    axios.get("/v1/jobs?z=jobs8").then(function(response) {
+      this.jobs = response.data;
     }.bind(this));
   },
 
@@ -304,7 +340,8 @@ var router = new VueRouter({
     { path: "/", component: HomePage },
     // { path: "/signup", component: SignupPage },
     // { path: "/login", component: LoginPage },
-   
+    { path: "/about", component: AboutPage },
+    { path: "/jobs", component: JobsPage },
     { path: "/hr-rep-login", component: HrRepLoginPage },
     { path: "/job-seeker-login", component: JobSeekerLoginPage },
     { path: "/logout", component: LogoutPage },

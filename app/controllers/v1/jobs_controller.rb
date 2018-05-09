@@ -18,6 +18,10 @@ class V1::JobsController < ApplicationController
 
   def index
     jobs = Job.all
+    sofer = params[:z] 
+    if sofer == "jobs8"  
+      jobs = Job.order("RANDOM()").limit(8)
+    end 
     render json: jobs.as_json
   end 
 
