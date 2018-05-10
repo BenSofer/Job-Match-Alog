@@ -22,12 +22,16 @@ var JobsPage = {
     return {
       message: "Welcome to Vue.js!",
       jobs: [],
+      businesses: [],
       errors: []
     };
   },
     created: function() {
     axios.get("/v1/jobs").then(function(response) {
       this.jobs = response.data;
+    }.bind(this));
+    axios.get("/v1/businesses?b=busi3").then(function(response) {
+      this.businesses = response.data;
     }.bind(this));
   },
   methods: {},

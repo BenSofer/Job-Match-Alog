@@ -50,8 +50,12 @@ class V1::BusinessesController < ApplicationController
   end
 
   def index
-    business = Business.all
-    render json: business.as_json
+    businesses = Business.all
+    ben = params[:b]
+    if ben == "busi3"
+      businesses = Business.last(3)
+    end 
+    render json: businesses.as_json
   end 
 
   def show

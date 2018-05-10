@@ -27,7 +27,7 @@ class V1::JobSeekersController < ApplicationController
     job_seekers = JobSeeker.all
     ben = params[:q] 
     if ben == "seekers3"  
-      job_seekers = JobSeeker.order("RANDOM()").limit(3)
+      job_seekers = JobSeeker.last(3)
     end 
     render json: job_seekers.as_json
   end 
