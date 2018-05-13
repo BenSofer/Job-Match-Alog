@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     delete '/matches'=> 'matches#destroy'
 
     get '/hr_reps' => 'hr_reps#index'
-    get '/hr_reps/:id' => 'hr_reps#show'
+    get '/hr_reps/dashboard' => 'hr_reps#dashboard'
     post '/hr_reps' => 'hr_reps#create'
     patch '/hr_reps/:id' => 'hr_reps#update'
     delete '/hr_reps'=> 'hr_reps#destroy'

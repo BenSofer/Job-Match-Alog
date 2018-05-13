@@ -31,19 +31,34 @@ class V1::JobsController < ApplicationController
     render json: job.as_json
   end
 
-  def update 
-    the_id = params[:id]
-    job = Job.find_by(id: the_id)
-    job.update(
-      occupation: params[:occupation],
-      experience: params[:experience],
-      work_value: params[:work_value],
-      awesomeness: params[:awesomeness],
-      file_upload: params[:file_upload],
-      status: params[:status]
-    )
-    render json: job.as_json
-  end 
+    def update
+    job = Job.find(params[:id])
+
+    job.occupation = params[:occupation] || job.occupation
+    job.experience = params[:experience] || job.experience
+    job.work_value = params[:work_value] || job.work_value
+    job.awesomeness = params[:awesomeness] || job.awesomeness
+    job.file_upload = params[:file_upload] || job.file_upload
+    if job.save!
+      render json: job.as_json
+    else
+      render json: {errors: job.errors.full_messages}
+    end
+  end
+
+  # def update 
+  #   the_id = params[:id]
+  #   job = Job.find_by(id: the_id)
+  #   job.update(
+  #     occupation: params[:occupation],
+  #     experience: params[:experience],
+  #     work_value: params[:work_value],
+  #     awesomeness: params[:awesomeness],
+  #     file_upload: params[:file_upload],
+  #     status: params[:status]
+  #   )
+  #   render json: job.as_json
+  # end 
 
   def destroy
     the_id = params[:id]

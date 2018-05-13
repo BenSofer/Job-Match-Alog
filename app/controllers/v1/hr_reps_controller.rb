@@ -22,10 +22,16 @@ class V1::HrRepsController < ApplicationController
     render json: hr_reps.as_json
   end 
 
-  def show
-    the_id = params[:id]
-    hr_rep = HrRep.find_by(id: the_id)
-    render json: hr_rep.as_json
+  def dashboard
+   p "*****************"
+    p current_hr_rep
+    p "*****************"
+    dashboard = current_hr_rep.business.jobs.first.matches.limit(5)
+
+render :json => dashboard.to_json(:include =>  :job_seeker )
+
+    # render json: hr_rep.as_json
+    # render :json => dashboard.to_json(include: [:job, :business, :zip, :occupation, :experience, :work_value, :awesomeness, :file_upload ])
   end
 
   def update 

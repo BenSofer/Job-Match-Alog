@@ -1,5 +1,39 @@
 /* global Vue, VueRouter, axios */
 
+var JobEditPage = {
+  template: "#job-edit-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      job: {occupation: "", experience: "", work_value: "",awesomeness: "", file_upload: ""}
+    };
+  },
+  created: function() {
+    axios.get("/v1/jobs/" + this.$route.params.id).then(function(response) {
+      this.job = response.data;
+    }.bind(this));
+  },
+  methods: {
+    updateJob: function() {
+      console.log('updating the job...');
+      // take in the parameters, make an object out of them
+      var params = {
+        occupation: this.job.occupation,
+        experience: this.job.experience,
+        work_value: this.job.work_value,
+        awesomeness: this.job.awesomeness,
+        file_upload: this.job.file_upload
+      };
+      // make an axios request
+      axios.patch("v1/jobs/" + this.$route.params.id, params).then(function(response) {
+        router.push("/");
+      });
+    }
+  },
+  computed: {}
+};
+
+
 var AboutPage = {
   template: "#about-page",
   data: function() {
@@ -11,6 +45,31 @@ var AboutPage = {
     // created runs when the component is created
     // console.log('outside this');
 
+  },
+  methods: {},
+  computed: {}
+};
+
+var DashboardPage = {
+  template: "#dashboard-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      businesses:[],
+      jobs:[],
+      matches:[],
+      job_seekers: [],
+      errors: []
+    };
+  },
+    created: function() {
+    axios.get("/v1/hr_reps/dashboard").then(function(response) {
+      this.matches = response.data;
+      console.log(this.matches)
+    }.bind(this));
+    // axios.get("/v1/hr_reps/dashboard").then(function(response) {
+    //   this.businesses = response.data;
+    // }.bind(this));
   },
   methods: {},
   computed: {}
@@ -107,7 +166,7 @@ var HrRepSignupPage = {
 // I would like to combine the two log in pages
 
 var HrRepLoginPage = {
-  template: "#login-page",
+  template: "#hr-rep-login-page",
   data: function() {
     return {
       email: "",
@@ -346,13 +405,15 @@ var router = new VueRouter({
     // { path: "/login", component: LoginPage },
     { path: "/about", component: AboutPage },
     { path: "/jobs", component: JobsPage },
-    { path: "/hr-rep-login", component: HrRepLoginPage },
-    { path: "/job-seeker-login", component: JobSeekerLoginPage },
+    { path: "/hr_rep_login", component: HrRepLoginPage },
+    { path: "/job_seeker_login", component: JobSeekerLoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/businesses/new", component: BusinessRegistrationPage },
     { path: "/job_seekers/new", component: SeekerRegistrationPage },
     { path: "/hr-rep-signup", component: HrRepSignupPage },
-    { path: "/job-seeker-signup", component: JobSeekerSignupPage }
+    { path: "/job-seeker-signup", component: JobSeekerSignupPage },
+    {path: "/jobs/:id/edit", component: JobEditPage},
+    {path: "/hr_reps/dashboard", component: DashboardPage}
   ],
 
   scrollBehavior: function(to, from, savedPosition) {
