@@ -42,10 +42,12 @@
                 <div aria-labelledby="clientZone" class="dropdown-menu"><a href="/#/businesses/new" class="dropdown-item">Register</a><a href="/#/hr_reps/dashboard" class="dropdown-item">Dashboard</a><a href="client-applicants.html" class="dropdown-item">Applicants                </a><a href="client-job.html" class="dropdown-item">Post a new job  </a></div>
               </li>
               <li class="nav-item dropdown"><a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pages</a>
-                <div aria-labelledby="pages" class="dropdown-menu"><a href="index.html" class="dropdown-item">Home</a><a href="category.html" class="dropdown-item">Job Listing</a><a href="detail.html" class="dropdown-item">Job Detail                </a><a href="about.html" class="dropdown-item">About                </a><a href="contact.html" class="dropdown-item">Contact                </a><a href="blog.html" class="dropdown-item">Blog Listing                </a><a href="post.html" class="dropdown-item">Blog Post                </a><a href="packages.html" class="dropdown-item">Pricing packages    </a><a href="testimonials.html" class="dropdown-item">Testimonials    </a><a href="text.html" class="dropdown-item">Text Page    </a><a href="faq.html" class="dropdown-item">FAQ</a></div>
+                <div aria-labelledby="pages" class="dropdown-menu"><a href="index.html" class="dropdown-item">Home</a><a href="category.html" class="dropdown-item">Job Listing</a><a href="detail.html" class="dropdown-item">Job Detail                </a><a href="about.html" class="dropdown-item">About                </a><a href="/#/contact" class="dropdown-item">Contact                </a><a href="blog.html" class="dropdown-item">Blog Listing                </a><a href="post.html" class="dropdown-item">Blog Post                </a><a href="packages.html" class="dropdown-item">Pricing packages    </a><a href="testimonials.html" class="dropdown-item">Testimonials    </a><a href="text.html" class="dropdown-item">Text Page    </a><a href="faq.html" class="dropdown-item">FAQ</a></div>
               </li>
-              <li class="nav-item">   <a href="contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item dropdown"><a href="/#/hr_rep_login" data-toggle="modal" class="btn navbar-btn btn-outline-light mb-5 mb-lg-0"> <i class="fa fa-sign-in"></i>Hr Rep Login</a></li>
+              <li class="nav-item">   <a href="/#/contact" class="nav-link">Contact</a></li>
+              <li class="nav-item dropdown"><a href="/#/hr_rep_login" class="btn navbar-btn btn-outline-light mb-5 mb-lg-0"> <i class="fa fa-sign-in"></i>Hr Rep Login</a></li>
+               <li class="nav-item dropdown"><a href="/#/logout" class="btn navbar-btn btn-outline-light mb-5 mb-lg-0"> <i class="fa fa-sign-in"></i>Logout</a></li>
+
             </ul>
           </div>
         </div>
@@ -147,9 +149,7 @@
 
 <template id="home-page">
   <div>
-      <!-- *** LOGIN MODAL ***_________________________________________________________
-    -->
-    <div id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+    <div id="/#/hr_rep_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -230,7 +230,7 @@
       </div>
     </section>
     <section>
-    <h4 class="heading">Fresh Jobs</h4>
+    <h4 class="heading">New Jobs Post</h4>
      <div v-for="job in jobs">
       <div class="container">
         <div class="job-listing job-listing--featured">
@@ -258,21 +258,21 @@
     </section>
     <section class="section testimonails bg-light-gray">
       <div class="container">
-        <h2 class="heading">What our customers say</h2>
-        <p class="lead text-center">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.  </p>
+        <h2 class="heading">What our clients say</h2>
+        <p class="lead text-center">Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!  </p>
         <div class="row"> 
           <div class="col-md-12">
             <ul class="owl-carousel testimonials equalize-height">
               <li class="item">
                 <div class="testimonial full-height">
                   <div class="text">
-                    <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
+                    <p>Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!</p>
                   </div>
                   <div class="bottom">
                     <div class="icon"><i class="fa fa-quote-left"></i></div>
                     <div class="name-picture"><img alt="" src="img/person-1.jpg">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>Jay Wengrow</h5>
+                      <p>CEO, Actualize</p>
                     </div>
                   </div>
                 </div>
@@ -280,13 +280,13 @@
               <li class="item">
                 <div class="testimonial full-height">
                   <div class="text">
-                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream.</p>
+                    <p>Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!</p>
                   </div>
                   <div class="bottom">
                     <div class="icon"><i class="fa fa-quote-left"></i></div>
                     <div class="name-picture"><img alt="" src="img/person-2.jpg">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>Jack the Ripper</h5>
+                      <p>CEO, Graveyards NY</p>
                     </div>
                   </div>
                 </div>
@@ -294,14 +294,13 @@
               <li class="item">
                 <div class="testimonial full-height">
                   <div class="text">
-                    <p>His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
-                    <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                    <p>Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!</p>
                   </div>
                   <div class="bottom">
                     <div class="icon"><i class="fa fa-quote-left"></i></div>
                     <div class="name-picture"><img alt="" src="img/person-3.png">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>William Jr The Second</h5>
+                      <p>CEO, HUGO BOSS</p>
                     </div>
                   </div>
                 </div>
@@ -309,13 +308,13 @@
               <li class="item">
                 <div class="testimonial full-height">
                   <div class="text">
-                    <p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad.</p>
+                    <p>Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!</p>
                   </div>
                   <div class="bottom">
                     <div class="icon"><i class="fa fa-quote-left"></i></div>
                     <div class="name-picture"><img alt="" src="img/person-4.jpg">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>Mary Lamb</h5>
+                      <p>CTO, Google</p>
                     </div>
                   </div>
                 </div>
@@ -323,264 +322,18 @@
               <li class="item">
                 <div class="testimonial full-height">
                   <div class="text">
-                    <p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad.</p>
+                    <p>Candibots Rock!!! Also the best part of actualize is the capstone project. I compare coding bootcamp to a vocational program. OK guys lets get under the hood and pull these wires out. Did any lights go out? Gotta love actualize!</p>
                   </div>
                   <div class="bottom">
                     <div class="icon"><i class="fa fa-quote-left"></i></div>
                     <div class="name-picture"><img alt="" src="img/person-4.jpg">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>Jerry Klien</h5>
+                      <p>CFO, Jammers</p>
                     </div>
                   </div>
                 </div>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <h3 class="heading">Our Packages</h3>
-        <p class="lead text-center mb-5">
-           
-          One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.  
-        </p>
-        <div class="row packages">
-          <div class="col-lg-3">
-            <div class="package ">
-              <div class="package-header">
-                <h5>Basic</h5>
-              </div>
-              <div class="price">
-                <div class="price-container">
-                  <h4><span class="currency">$</span>7</h4><span class="period">/ month</span>
-                </div>
-              </div>
-              <ul>
-                <li><i class="fa fa-check"></i>100GB Storage</li>
-                <li><i class="fa fa-times"></i>Own config file</li>
-                <li><i class="fa fa-times"></i>Sharing Tools</li>
-                <li><i class="fa fa-times"></i>Auto Backup</li>
-                <li><i class="fa fa-times"></i>Extended Security</li>
-              </ul><a href="#" class="btn btn-outline-white-primary">Sign Up</a>
-            </div>
-          </div>
-          <!-- end col-->
-          <div class="col-lg-3">
-            <div class="package ">
-              <div class="package-header">
-                <h5>Standard</h5>
-              </div>
-              <div class="price">
-                <div class="price-container">
-                  <h4><span class="currency">$</span>21</h4><span class="period">/ month</span>
-                </div>
-              </div>
-              <ul>
-                <li><i class="fa fa-check"></i>100GB Storage</li>
-                <li><i class="fa fa-check"></i>Own config file</li>
-                <li><i class="fa fa-times"></i>Sharing Tools</li>
-                <li><i class="fa fa-times"></i>Auto Backup</li>
-                <li><i class="fa fa-times"></i>Extended Security</li>
-              </ul><a href="#" class="btn btn-outline-white-primary">Sign Up</a>
-            </div>
-          </div>
-          <!-- end col-->
-          <div class="col-lg-3">
-            <div class="package best-value">
-              <div class="package-header">
-                <h5>Premium</h5>
-                <div class="meta-text">Best Value</div>
-              </div>
-              <div class="price">
-                <div class="price-container">
-                  <h4><span class="currency">$</span>53</h4><span class="period">/ month</span>
-                </div>
-              </div>
-              <ul>
-                <li><i class="fa fa-check"></i>100GB Storage</li>
-                <li><i class="fa fa-check"></i>Own config file</li>
-                <li><i class="fa fa-check"></i>Sharing Tools</li>
-                <li><i class="fa fa-times"></i>Auto Backup</li>
-                <li><i class="fa fa-times"></i>Extended Security</li>
-              </ul><a href="#" class="btn btn-outline-white-primary">Sign Up</a>
-            </div>
-          </div>
-          <!-- end col-->
-          <div class="col-lg-3">
-            <div class="package ">
-              <div class="package-header">
-                <h5>Standard</h5>
-              </div>
-              <div class="price">
-                <div class="price-container">
-                  <h4><span class="currency">$</span>99</h4><span class="period">/ month</span>
-                </div>
-              </div>
-              <ul>
-                <li><i class="fa fa-check"></i>100GB Storage</li>
-                <li><i class="fa fa-check"></i>Own config file</li>
-                <li><i class="fa fa-check"></i>Sharing Tools</li>
-                <li><i class="fa fa-check"></i>Auto Backup</li>
-                <li><i class="fa fa-check"></i>Extended Security</li>
-              </ul><a href="#" class="btn btn-outline-white-primary">Sign Up</a>
-            </div>
-          </div>
-          <!-- end col-->
-        </div>
-      </div>
-    </section>
-    <section style="background-image: url('img/startup.jpg'); " class="section-divider">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <p>Start searching for your new job now! </p>
-            <p><a href="#" class="btn btn-outline-light">See our job offers </a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="heading">
-              <h4>From our blog</h4>
-            </div>
-            <p class="text-center text-muted">What's new in the world of human resources? Check out our blog!</p>
-          </div>
-        </div>
-        <div id="blog-homepage" class="row">
-          <div class="col-md-6">
-            <div class="post">
-              <div class="image"><a href="post.html"><img src="img/blog1.jpg" alt="" class="img-fluid"></a></div>
-              <h4><a href="post.html">Education in the IT</a></h4>
-              <p class="post__intro">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="read-more"><a href="post.html" class="btn btn-outline-white-primary">Continue reading</a></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="post">
-              <div class="image"><a href="post.html"><img src="img/blog2.jpg" alt="" class="img-fluid"></a></div>
-              <h4><a href="post.html">Best books for personal development</a></h4>
-              <p class="post__intro">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="read-more"><a href="post.html" class="btn btn-outline-white-primary">Continue reading</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
-<template id=about-page>
-  <div>
-    <section class="bg-light-gray">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-8 mx-auto">
-            <nav aria-label="breadcrumb">
-              <ul class="breadcrumb d-flex justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li aria-current="page" class="breadcrumb-item active">About us</li>
-              </ul>
-            </nav>
-            <h1 class="heading">About us</h1>
-            <p class="lead text-center">Candibots Rock!</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-8 mx-auto">
-            <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
-            <h2>Header Level 2</h2>
-            <ol>
-              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-              <li>Aliquam tincidunt mauris eu risus.</li>
-            </ol>
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="background-image: url('img/startup.jpg'); " class="section-divider">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <p>Start searching for your new job now! </p>
-            <p><a href="#" class="btn btn-outline-light">See our job offers </a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="heading">Our team</h2>
-            <p class="lead text-center">This is the lead paragraph of the article. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
-          </div>
-        </div>
-        <div class="row team">
-          <div class="col-lg-3 col-sm-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h4"><a href="#">Yosef Saslow</a></h3>
-              <p class="role">founder</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member-->
-            
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-2.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h4"><a href="#">Ben Sofer</a></h3>
-              <p class="role">CTO</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member-->
-            
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-3.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h4"><a href="#">Nechama Gross</a></h3>
-              <p class="role">Team Leader</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member-->
-            
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-4.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h4"><a href="#">Chaim Greenberg</a></h3>
-              <p class="role">Lead developer</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member-->
-            
           </div>
         </div>
       </div>
@@ -687,7 +440,7 @@
   <div class="vue-component">
 
     <div class="container">
-      <h1>Register Your Business</h1>
+      <h1>Hello</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
@@ -868,7 +621,7 @@
                     <th>Candidates Work Value</th>
                     <th>Candidates Awesomeness</th>
                     <th>Candidates File Upload</th>
-                    <th>Actions</th>
+                    <th>Choose This Candidate</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -881,7 +634,10 @@
                     <td>{{match.job_seeker.awesomeness}}</td>
                     <td> <a href="/#/hr_reps/dashboard" class="btn btn-success"> <i class="fa fa-users"></i> <span class="hidden-xs hidden-sm">{{match.job_seeker.file_upload}}</span></a>
                     </td>
-                    <td> <a href="/#/hr_reps/dashboard" class="btn btn-outline-white-secondary"> <i class="fa fa-edit"></i>Edit</a><br><a href="#" class="btn btn-outline-white-secondary"> <i class="fa fa-check-circle-o"></i><span class="hidden-xs hidden-sm">Mark as </span>filled</a><br><a href="#" class="btn btn-outline-white-secondary"> <i class="fa fa-times-circle-o"></i>Delete</a></td>
+                    <td> 
+                      <div class="col-sm-12 col-md-2 col-lg-1">
+                        <div class="job__star"><a href="/#/contact" data-toggle="tooltip" data-placement="top" title="Star To Choose this candidate" class="job__star__link"><i class="fa fa-star"></i></a></div>
+                     </div>
                   </tr>
                 </tbody>
               </table>
@@ -928,5 +684,60 @@
       </div>
 
     </div>
+  </div>
+</template>
+
+<template id="contact-page">
+  <div>
+      <section class="bg-light-gray">
+      <div class="container">
+        <div class="row margin-bottom">
+          <div class="col-lg-12 text-center">
+            <div class="heading">
+              <h2>Contact form</h2>
+            </div>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <form class="contact-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="firstname">Firstname</label>
+                    <input id="firstname" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="lastname">Lastname</label>
+                    <input id="lastname" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input id="subject" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12 text-center">
+                  <button type="submit" class="btn btn-outline-white-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>

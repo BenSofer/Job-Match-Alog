@@ -20,6 +20,7 @@ class V1::BusinessesController < ApplicationController
        business_id: business1.id
       )
     hr_rep1.save
+   p hr_rep1.errors.full_messages
 
     job1 = Job.new(
       occupation: params[:job_occupation],
