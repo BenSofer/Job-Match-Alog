@@ -1,4 +1,4 @@
-/* global Vue, VueRouter, axios */
+2/* global Vue, VueRouter, axios */
 
 var JobEditPage = {
   template: "#job-edit-page",
